@@ -53,3 +53,5 @@
   args:
     chdir: /var/www/magento
     creates: /var/www/magento/app/etc/local.xml
+
+- cron: name="Magento Cron" minute="*/5" job="/usr/bin/php /var/www/magento/cron.php" user="apache"
