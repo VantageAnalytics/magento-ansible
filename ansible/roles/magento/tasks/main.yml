@@ -1,18 +1,21 @@
-- name: Install Subversion
-  yum: name="subversion" state=latest
+- name: Install git
+  yum: name="git" state=latest
 
 - stat: path=/var/www/magento
   register: magento_dir
 
 - name: Download Magento
-  subversion: repo=http://svn.magentocommerce.com/source/branches/{{ magento_version }} dest=/var/www/magento export=True
+  git:
+    repo: git://github.com/OpenMage/magento-mirror
+    dest: /var/www/magento
+    version: 1.9.3.2
   when: magento_dir.stat.exists == False
 
 - name: Set owner on /var/www/magento
   file: dest=/var/www/magento recurse=true owner=apache group=apache
 
 - name: Install MySQL-python
-  yum: name=MySQL-python state=latest
+  yum: name=MySQL-python27 state=latest
 
 - name: Create MySQL user
   mysql_user: name={{ magento_database_user }} password={{ magento_database_password }} priv={{ magento_database_name }}.*:ALL
