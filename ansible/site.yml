@@ -1,6 +1,5 @@
 - hosts: magento
   roles:
-    - role: firewall
     - role: php55
     - role: apache
     - role: mysql-server

@@ -1,5 +1,5 @@
-- name: Install Apache 2.2
-  yum: name=httpd state=latest
+- name: Install Apache 2.4
+  yum: name=httpd24 state=latest
 
-- name: Enable Apache 2.2
+- name: Enable Apache 2.4
   service: name=httpd state=started enabled=yes
