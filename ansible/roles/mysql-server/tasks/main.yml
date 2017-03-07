@@ -1,8 +1,5 @@
-- name: Add repository MySQL Community
-  yum: name=http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm state=present
-
 - name: Install MySQL 5.6
-  yum: name=mysql-community-server state=present enablerepo=mysql56-community
+  yum: name=mysql56-server state=present
 
 - name: Enable MySQL 5.6
   service: name=mysqld state=started enabled=yes

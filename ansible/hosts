@@ -1,8 +1,4 @@
-magentotest ansible_ssh_host=169.53.160.53 ansible_ssh_port=22 ansible_ssh_user=root
-magento18test ansible_ssh_host=169.53.160.54 ansible_ssh_port=22 ansible_ssh_user=root
+magentotest ansible_ssh_host=54.172.163.66 ansible_ssh_port=22 ansible_ssh_user=ec2-user
 
 [magento]
 magentotest
-
-[magento]
-magento18test
